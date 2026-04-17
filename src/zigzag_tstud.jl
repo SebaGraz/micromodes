@@ -25,7 +25,7 @@ function zz_sampling(T::Student, x::Float64, v::Float64, Tfinal::Float64)
     δt, lb = reflection_time(T, x, v)
     dtb = hitting_time(T, x, v)
     while t < Tfinal
-        if δt < dtb
+        if δt <= dtb
             t += δt
             x = x + v*δt 
             l = max(0.0, v*Sn_hat(T, x))
